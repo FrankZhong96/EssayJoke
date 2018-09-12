@@ -1,0 +1,6 @@
+frank.jks
+pas£º369963
+±ğÃû£ºessayjoke
+pas£º369963
+
+apkpatch.bat -f new.apk -t old.apk -o out -k frank.jks -p 369963 -a essayjoke -e 369963
