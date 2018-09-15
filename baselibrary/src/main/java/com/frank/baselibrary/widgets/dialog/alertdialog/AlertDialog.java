@@ -1,4 +1,4 @@
-package com.frank.baselibrary.widgets.dialog;
+package com.frank.baselibrary.widgets.dialog.alertdialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -19,7 +19,7 @@ public class AlertDialog extends Dialog{
 
     private AlertController mAlert;
 
-    public AlertDialog(@NonNull Context context, int themeResId) {
+    private AlertDialog(@NonNull Context context, int themeResId) {
         super(context, themeResId);
         mAlert = new AlertController(this,getWindow());
     }
@@ -67,6 +67,7 @@ public class AlertDialog extends Dialog{
             P.mTextArray.put(viewId,text);
             return this;
         }
+
 
         // 设置点击事件
         public Builder setOnClickListener(int view , View.OnClickListener listener){

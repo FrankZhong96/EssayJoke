@@ -1,4 +1,4 @@
-package com.frank.baselibrary.widgets.dialog;
+package com.frank.baselibrary.widgets.dialog.alertdialog;
 
 import android.content.Context;
 import android.content.DialogInterface;

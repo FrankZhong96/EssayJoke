@@ -37,4 +37,6 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //热修复 阿里AndFix
     api 'com.alipay.euler:andfix:0.5.0@aar'
+    //OkHttp3
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 }

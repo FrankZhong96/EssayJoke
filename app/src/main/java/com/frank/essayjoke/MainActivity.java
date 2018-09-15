@@ -6,14 +6,17 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.frank.baselibrary.ExceptionCrashHandler;
 import com.frank.baselibrary.fixBug.FixDexManager;
 import com.frank.baselibrary.utils.PermisionUtils;
-import com.frank.baselibrary.widgets.dialog.AlertDialog;
+import com.frank.baselibrary.widgets.dialog.alertdialog.AlertDialog;
 import com.frank.framelibrary.BaseSkinActivity;
+import com.frank.framelibrary.DefaultNavigationBar;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -30,6 +33,8 @@ public class MainActivity extends BaseSkinActivity {
     TextView mTvText;
     @BindView(R.id.iv_image)
     ImageView mIvImage;
+    @BindView(R.id.view_group)
+    RelativeLayout mViewGroup;
 
     @Override
     protected void initData() {
@@ -50,11 +55,11 @@ public class MainActivity extends BaseSkinActivity {
         if (fixFile.exists()) {
             FixDexManager fixDexManager = new FixDexManager(this);
             try {
-                fixDexManager.fixDex(fixFile.getAbsolutePath()) ;
-                Toast.makeText(MainActivity.this , "修复成功" , Toast.LENGTH_SHORT).show();
+                fixDexManager.fixDex(fixFile.getAbsolutePath());
+                Toast.makeText(MainActivity.this, "修复成功", Toast.LENGTH_SHORT).show();
             } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(MainActivity.this , "修复失败" , Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "修复失败", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -101,6 +106,10 @@ public class MainActivity extends BaseSkinActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        DefaultNavigationBar navigationBar = new
+                DefaultNavigationBar.Builder(this)
+                .setTitle("投稿")
+                .builder();
     }
 
     @OnClick({R.id.tv_text, R.id.iv_image})
@@ -115,11 +124,12 @@ public class MainActivity extends BaseSkinActivity {
                         .setOnClickListener(R.id.submit_btn, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Toast.makeText(MainActivity.this,"SUBMIT",Toast.LENGTH_LONG).show();
+                                Toast.makeText(MainActivity.this, "SUBMIT", Toast.LENGTH_LONG).show();
                             }
                         })
                         .formBottom(false).fullWidth().show();
                 break;
+
         }
     }
 
